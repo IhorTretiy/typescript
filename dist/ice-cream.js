@@ -1,33 +1,33 @@
-var iceCreamPrices = {
+const iceCreamPrices = {
     small: 10,
     large: 25,
     toppings: {
         chocolate: 5,
         caramel: 6,
-        berries: 10
+        berries: 10,
     },
-    marshmallow: 5
+    marshmallow: 5,
 };
 function iceCreamCoast() {
-    var size = prompt('What size do you want? (small/large)').toLowerCase();
+    let size = prompt('What size do you want? (small/large)').toLowerCase();
     if (size !== 'small' && size !== 'large') {
         alert("Please enter the correct ice cream size.");
         return 0;
     }
-    var toppings = prompt('What kind of topping you want?(chocolate/caramel/berries)').toLowerCase().split(',');
-    var sprinkle = prompt('Do you want to add?(yes/no)').toLowerCase();
-    var marshmallow = false;
+    let toppings = prompt('What kind of topping you want?(chocolate/caramel/berries)').toLowerCase().split(',');
+    let sprinkle = prompt('Do you want to add?(yes/no)').toLowerCase();
+    let marshmallow = false;
     if (sprinkle === 'yes') {
         marshmallow = true;
     }
-    var coast;
+    let coast;
     if (size === 'small') {
         coast = iceCreamPrices.small;
     }
     else if (size === 'large') {
         coast = iceCreamPrices.large;
     }
-    toppings.forEach(function (topping) {
+    toppings.forEach((topping) => {
         if (topping === 'chocolate' || topping === 'caramel' || topping === 'berries') {
             coast += iceCreamPrices.toppings[topping];
         }
@@ -37,7 +37,7 @@ function iceCreamCoast() {
     }
     return coast;
 }
-var iceCreamCost = iceCreamCoast();
+const iceCreamCost = iceCreamCoast();
 if (iceCreamCost > 0) {
-    alert("Total cost is ".concat(iceCreamCost, " UAH"));
+    alert(`Total cost is ${iceCreamCost} UAH`);
 }
